@@ -32,7 +32,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.spingboot.app.models.domain.Cliente;
+import com.spingboot.app.models.entity.Cliente;
 import com.spingboot.app.models.service.IClienteService;
 import com.spingboot.app.models.service.IUploadFileService;
 import com.spingboot.app.util.paginator.PageRender;

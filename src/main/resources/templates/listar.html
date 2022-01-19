@@ -22,8 +22,10 @@
 							<th>ID</th>
 							<th>Nombres</th>
 							<th>Apellidos</th>
+							<th>Direccion</th>
 							<th>E-mail</th>
 							<th>Creado</th>
+							<th>Crear Factura</th>
 							<th>Editar</th>
 							<th>Eliminar</th>
 						</tr>
@@ -34,8 +36,10 @@
 							<td><a class="btn btn-primary btn-xs" th:href="@{/clientes/ver/} + ${cliente.id}" th:text="${cliente.id}"></a></td>
 							<td th:text="${cliente.nombres}"></td>
 							<td th:text="${cliente.apellidos}"></td>
+							<td th:text="${cliente.direccion}"></td>
 							<td th:text="${cliente.email}"></td>
 							<td th:text="${cliente.createAt}"></td>
+							<td><a class="btn btn-success btn-xs" th:href="@{'/facturas/form/' + ${cliente.id}}" th:text="'Crear Factura'"></a></td>
 							<td><a class="btn btn-primary btn-xs"
 								th:href="@{/clientes/form/} + ${cliente.id}" th:text="'editar'"></a></td>
 							<td><a class="btn btn-primary btn-xs"

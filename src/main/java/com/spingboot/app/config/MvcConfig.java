@@ -1,4 +1,4 @@
-package com.spingboot.app;
+package com.spingboot.app.config;
 
 import java.nio.file.Paths;
 

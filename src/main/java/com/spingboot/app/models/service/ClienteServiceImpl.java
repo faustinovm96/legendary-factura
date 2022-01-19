@@ -11,7 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.spingboot.app.models.dao.IClienteDao;
 import com.spingboot.app.models.dao.IClienteDaoCrud;
-import com.spingboot.app.models.domain.Cliente;
+import com.spingboot.app.models.dao.IFacturaDao;
+import com.spingboot.app.models.dao.IProductoDao;
+import com.spingboot.app.models.entity.Cliente;
+import com.spingboot.app.models.entity.Factura;
+import com.spingboot.app.models.entity.Producto;
 
 @Service("clienteServiceJPA")
 public class ClienteServiceImpl implements IClienteService {
@@ -19,6 +23,12 @@ public class ClienteServiceImpl implements IClienteService {
 	@Autowired
 	@Qualifier("clienteDaoCRUD")
 	private IClienteDaoCrud clienteDao;
+	
+	@Autowired
+	private IProductoDao productoDao;
+	
+	@Autowired
+	private IFacturaDao facturaDao;
 	
 	@Override
 	@Transactional(readOnly = true)
@@ -51,4 +61,35 @@ public class ClienteServiceImpl implements IClienteService {
 		return clienteDao.findAll(pageable);
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public List<Producto> findByNombre(String term) {
+		return productoDao.findByNombre(term);
+	}
+	
+	@Override
+	@Transactional
+	public void saveFactura(Factura factura) {
+		facturaDao.save(factura);
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public Producto findProductoById(Long id) {
+		// TODO Auto-generated method stub
+		return productoDao.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public Factura findFacturaById(Long id) {
+		// TODO Auto-generated method stub
+		return facturaDao.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional
+	public void deleteFactura(Long id) {
+		facturaDao.deleteById(id);
+	}
 }
