@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,6 +28,7 @@ import com.spingboot.app.models.entity.Factura;
 import com.spingboot.app.models.entity.Producto;
 import com.spingboot.app.models.service.IClienteService;
 
+@Secured("ROLE_ADMIN") //Seguridad a nivel de clase
 @Controller
 @RequestMapping("/facturas")
 @SessionAttributes("factura")
@@ -107,7 +109,7 @@ public class FacturaController {
 		if(factura != null) {
 			clienteService.deleteFactura(id);
 			flash.addFlashAttribute("success", "Factura eliminada con éxito!");
-			return "redirect:/ver/" + factura.getCliente().getId();
+			return "redirect:/clientes/ver/" + factura.getCliente().getId();
 		}
 		flash.addFlashAttribute("error", "La factura no existe en la base de datos, no se pudo eliminar!");
 		
