@@ -9,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.spingboot.app.models.dao.IClienteDao;
 import com.spingboot.app.models.dao.IClienteDaoCrud;
 import com.spingboot.app.models.dao.IFacturaDao;
 import com.spingboot.app.models.dao.IProductoDao;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout/layout :: head"></head>
 <body>
 
@@ -12,8 +13,9 @@
 
 				<h4 class="card-tittle">
 
-				<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/clientes/form}" class="btn btn-primary">Crear
-					Nuevo Cliente</a>
+					<a sec:authorize="hasRole('ROLE_ADMIN')"
+						th:href="@{/clientes/form}" class="btn btn-outline-primary" th:text="#{text.cliente.crear}">Crear
+						Nuevo Cliente</a>
 				</h4>
 				<table class="table table-striped">
 
@@ -33,18 +35,28 @@
 
 					<tbody>
 						<tr th:each="cliente: ${clientes}">
-							<td sec:authorize="hasRole('ROLE_USER')"><a class="btn btn-primary btn-xs" th:href="@{/clientes/ver/} + ${cliente.id}" th:text="${cliente.id}"></a></td>
+							<td sec:authorize="hasRole('ROLE_USER')"><a
+								class="btn btn-info btn-xs"
+								th:href="@{/clientes/ver/} + ${cliente.id}"
+								th:text="${cliente.id}"></a></td>
 							<td th:text="${cliente.nombres}"></td>
 							<td th:text="${cliente.apellidos}"></td>
 							<td th:text="${cliente.direccion}"></td>
 							<td th:text="${cliente.email}"></td>
 							<td th:text="${cliente.createAt}"></td>
-							<td sec:authorize="hasRole('ROLE_ADMIN')"><a class="btn btn-success btn-xs" th:href="@{'/facturas/form/' + ${cliente.id}}" th:text="'Crear Factura'"></a></td>
-							<td sec:authorize="hasRole('ROLE_ADMIN')"><a class="btn btn-primary btn-xs"
-								th:href="@{/clientes/form/} + ${cliente.id}" th:text="'editar'"></a></td>
-							<td sec:authorize="hasRole('ROLE_ADMIN')"><a class="btn btn-primary btn-xs"
+							<td sec:authorize="hasRole('ROLE_ADMIN')"><a
+								class="btn btn-outline-success btn-xs"
+								th:href="@{'/facturas/form/' + ${cliente.id}}"
+								th:text="'Crear Factura'"></a></td>
+							<td sec:authorize="hasRole('ROLE_ADMIN')"><a
+								class="btn btn-outline-primary btn-xs"
+								th:href="@{/clientes/form/} + ${cliente.id}" th:text="'Editar'"></a></td>
+							<td sec:authorize="hasRole('ROLE_ADMIN')"><a
 								th:href="@{/clientes/eliminar/} + ${cliente.id}"
-								th:text="'eliminar'" onclick="return confirm('ESTA seguro?');"></a></td>
+								onclick="return confirm('ESTA seguro?');"><button
+										class="btn btn-outline-danger btn-xs">
+										<i class="bi bi-apple"></i>
+									</button></a></td>
 						</tr>
 					</tbody>
 

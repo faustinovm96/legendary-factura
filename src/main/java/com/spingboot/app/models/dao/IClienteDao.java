@@ -2,7 +2,6 @@ package com.spingboot.app.models.dao;
 
 import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.spingboot.app.models.entity.Cliente;

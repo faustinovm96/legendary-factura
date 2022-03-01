@@ -11,7 +11,7 @@
 	<groupId>com.spingboot.app</groupId>
 	<artifactId>spring-boot-datajpa</artifactId>
 	<version>1.0</version>
-	<name>spring-boot-datajpa</name>
+	<name>Seed Legendary</name>
 	<description>Crud utilizando spring</description>
 	<properties>
 		<java.version>1.8</java.version>

@@ -1,3 +1,4 @@
+
 /* Populate tables */
 INSERT INTO clientes (cli_nombres, cli_apellidos, cli_direccion, cli_email, create_at, foto) VALUES('Andres', 'Guzman', '', 'profesor@bolsadeideas.com', '2017-08-01', '');
 INSERT INTO clientes (cli_nombres, cli_apellidos, cli_direccion, cli_email, create_at, foto) VALUES('John', 'Doe', '', 'john.doe@gmail.com', '2017-08-02', '');
@@ -23,3 +24,11 @@ INSERT INTO detalles_facturas (cantidad, factura_id, producto_id) VALUES(1, 1, 7
 
 INSERT INTO facturas (fac_descripcion, fac_observacion, cliente_id, create_at) VALUES('Factura Bicicleta', 'Alguna nota importante!', 2, NOW());
 INSERT INTO detalles_facturas (cantidad, factura_id, producto_id) VALUES(3, 2, 6);
+
+/* Creamos algunos usuarios con sus roles */
+INSERT INTO `users` (username, password, enabled) VALUES ('faustino','$2a$10$O9wxmH/AeyZZzIS09Wp8YOEMvFnbRVJ8B4dmAMVSGloR62lj.yqXG',1);
+INSERT INTO `users` (username, password, enabled) VALUES ('admin','$2a$10$DOMDxjYyfZ/e7RcBfUpzqeaCs8pLgcizuiQWXPkU35nOhZlFcE9MS',1);
+
+INSERT INTO `authorities` (user_id, authority) VALUES (1,'ROLE_USER');
+INSERT INTO `authorities` (user_id, authority) VALUES (2,'ROLE_ADMIN');
+INSERT INTO `authorities` (user_id, authority) VALUES (2,'ROLE_USER');
